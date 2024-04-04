@@ -88,6 +88,15 @@ public class StudentRepository {
 
     public void deleteAllTeachers(){
         // your code goes here
+        for(String teacher: teacherMap.keySet()){
+            if(teacherStudentMapping.containsKey(teacher)){
+                List<String> studentList= teacherStudentMapping.get(teacher);
+                for(String studentName : studentList){
+                    studentMap.remove(studentName);
+                }
+            }
+            teacherStudentMapping.remove(teacher);
+        }
         teacherMap= new HashMap<>();
     }
 }
