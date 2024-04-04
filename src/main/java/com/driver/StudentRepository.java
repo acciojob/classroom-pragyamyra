@@ -73,6 +73,8 @@ public class StudentRepository {
 
     public void deleteTeacher(String teacher){
         // your code goes here
+        if(teacherStudentMapping.containsKey(teacher))
+            teacherStudentMapping.remove(teacher);
         if(teacherMap.containsKey(teacher)){
             teacherMap.remove(teacher);
         }
