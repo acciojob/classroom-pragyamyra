@@ -73,8 +73,14 @@ public class StudentRepository {
 
     public void deleteTeacher(String teacher){
         // your code goes here
-        if(teacherStudentMapping.containsKey(teacher))
+        if(teacherStudentMapping.containsKey(teacher)) {
+            List<String> studentList = new ArrayList<>(teacherStudentMapping.get(teacher));
+            for(String s:studentList){
+                studentMap.remove(s);
+            }
             teacherStudentMapping.remove(teacher);
+
+        }
         if(teacherMap.containsKey(teacher)){
             teacherMap.remove(teacher);
         }
